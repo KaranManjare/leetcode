@@ -1,0 +1,22 @@
+class Solution {
+    public void rotate(int[][] arr) {
+        int n=arr.length;
+        int start=0;
+        int end=n-1;
+        while(start<end){//swapping rows with cols 
+            int[] t=arr[start];
+            arr[start]=arr[end];
+            arr[end]=t;
+            start++;
+            end--;
+        }
+
+        for(int i=0;i<n;i++){//transpose
+            for(int j=i+1;j<n;j++){
+                int t=arr[i][j];
+                arr[i][j]=arr[j][i];
+                arr[j][i]=t;
+            }
+        }
+    }
+}
