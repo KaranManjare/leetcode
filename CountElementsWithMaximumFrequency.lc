@@ -1,0 +1,18 @@
+class Solution {
+    public int maxFrequencyElements(int[] nums) {
+        Map<Integer,Integer> hm=new HashMap<>();
+        int maxf=0;
+        for(int n:nums){
+            int cnt=hm.getOrDefault(n,0)+1;
+            hm.put(n,cnt);
+            maxf=Math.max(maxf,cnt);
+        }
+        int sum=0;
+        for(int c:hm.values()){
+            if(c==maxf){
+                sum+=c;
+            }
+        }
+        return sum;
+    }
+}
